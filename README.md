@@ -1,56 +1,52 @@
-# THE LAST TWO
+[README.md](https://github.com/user-attachments/files/32673699/README.md)
+# THE LAST TWO — Samsung TV build
 
-Una experiencia narrativa de supervivencia para dos, pensada para jugar desde una Samsung TV con el mando.
-
-## Qué incluye
-
-- 6 historias largas y diferenciadas.
-- 18 decisiones jugadas por noche, estructuradas en 5 actos.
-- 20 escenas posibles por historia: cada partida cambia de recorrido y deja escenas sin descubrir.
-- Sesiones diseñadas para durar aproximadamente 60–75 minutos.
-- Decisiones privadas con revelación posterior.
-- Estados de salud, energía, ánimo, confianza, suerte, agua y comida.
-- Final con lectura narrativa, métricas, decisiones clave y escenas descubiertas.
-- Archivo local, insignias y mejores resultados guardados en `localStorage`.
-- Apariencia oscura y clara, guardada en la TV.
-- Ilustraciones vectoriales SVG y sonido procedural opcional.
-- Sin backend, API, npm ni dependencias externas.
-
-## Historias
-
-1. **La primera noche** — ciudad, escasez y confianza.
-2. **Después de la tormenta** — isla, exploración y misterio.
-3. **Bajo cero** — montaña, frío y orientación.
-4. **Último descenso** — órbita, oxígeno y sacrificio.
-5. **La casa sin vecinos** — misterio, percepción y decisiones compartidas.
-6. **La última carretera** — distancia, combustible y desgaste.
-
-## Rejugabilidad
-
-Cada historia contiene 20 escenas agrupadas en 5 actos. Una partida juega 18 escenas siguiendo una secuencia de actos, pero selecciona al azar qué escenas aparecen dentro de cada acto. Las decisiones también alteran estadísticas, confianza, suerte, perfil final y desenlace.
+Juego narrativo para dos diseñado para jugar desde el navegador de una Samsung Smart TV.
 
 ## Despliegue
 
-1. Sube esta carpeta a un repositorio de GitHub.
-2. En Vercel, importa el repositorio.
-3. Selecciona `Other` si Vercel pide framework.
-4. Deja vacío el comando de build.
-5. Despliega.
+Sube todos los archivos del directorio a GitHub e importa el repositorio en Vercel.
 
-No necesita variables de entorno ni servidor.
+No necesita Node, npm, backend, API, base de datos ni variables de entorno.
 
-## Pantalla completa
+En Vercel:
 
-La aplicación solicita pantalla completa después de una interacción del usuario. Si el navegador del televisor rechaza la petición, el juego sigue funcionando y se puede usar el control de pantalla completa del navegador.
+- Framework: **Other**
+- Build Command: vacío
+- Output Directory: `.`
 
-## Mando de TV
+La aplicación es estática.
 
-- Flechas: mover el foco.
-- OK / Enter: seleccionar.
-- Atrás / Escape: volver cuando la situación lo permite.
-- `F`: pantalla completa.
-- `T`: claro / oscuro.
+## Compatibilidad TV
 
-## Compatibilidad
+Esta versión usa un runtime JavaScript deliberadamente conservador para funcionar también en Samsung antiguas:
 
-El proyecto evita frameworks y APIs innecesarias para reducir riesgos en navegadores de TV antiguos. La validación final debe hacerse en el modelo concreto de Samsung porque el motor web cambia entre generaciones.
+- JavaScript ES5-compatible en los archivos de ejecución.
+- Sin `let`, `const`, clases, arrow functions, spread, `Set`, `Map`, optional chaining ni template literals en runtime.
+- Sin CSS custom properties, Grid, `clamp()`, `min()`, `max()` ni `color-mix()` en la hoja principal de TV.
+- Navegación por flechas, Enter/OK, Escape/Back y teclas F/T.
+- Fullscreen con variantes estándar y WebKit cuando están disponibles.
+- LocalStorage para historial, preferencias e insignias.
+
+Samsung indica que los motores web varían por generación: 2016 usa WebKit r152340, 2017 Chromium M47, 2018 M56 y generaciones posteriores motores Chromium más recientes. Por eso esta edición evita características que no son fiables en las generaciones antiguas.
+
+## Funcionamiento
+
+La partida se ejecuta completamente en la TV. Los escenarios, eventos y reglas están incluidos en `data.js`, `engine.js` y `app.js`.
+
+El almacenamiento local solo se utiliza para:
+
+- tema claro/oscuro
+- sonido
+- historial
+- insignias
+
+No hay cuentas ni datos remotos.
+
+## Solución de arranque
+
+`index.html` contiene una pantalla de arranque estática. Si el JavaScript no puede ejecutarse, ya no queda una pantalla blanca completamente vacía: aparece un mensaje de compatibilidad.
+
+## Contenido
+
+6 mundos, 20 eventos posibles por mundo, 18 rondas por partida, cinco actos y condiciones de partida variables.
