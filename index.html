@@ -1,0 +1,46 @@
+<!doctype html>
+<html lang="es" data-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="theme-color" content="#11110f">
+  <meta name="description" content="The Last Two — una noche interactiva de supervivencia para dos.">
+  <meta name="color-scheme" content="dark light">
+  <link rel="manifest" href="manifest.webmanifest">
+  <link rel="icon" href="assets/icon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="styles.css">
+  <title>The Last Two</title>
+</head>
+<body>
+  <div id="app" class="app" tabindex="-1">
+    <div class="texture" aria-hidden="true"></div>
+    <div class="paper-orbit paper-orbit-a" aria-hidden="true"></div>
+    <div class="paper-orbit paper-orbit-b" aria-hidden="true"></div>
+
+    <header class="topbar">
+      <button id="homeBtn" class="brand-button" type="button" data-focusable aria-label="Volver al inicio">
+        <span class="brand-mark">02</span><span>THE LAST TWO</span>
+      </button>
+      <div class="topbar-right">
+        <span id="sessionPill" class="session-pill hidden">RONDA 01 / 08</span>
+        <button id="themeBtn" class="icon-button" type="button" data-focusable aria-label="Cambiar apariencia">
+          <span class="button-icon" id="themeIcon" aria-hidden="true"></span><span id="themeLabel">CLARO</span>
+        </button>
+        <button id="soundBtn" class="icon-button" type="button" data-focusable aria-label="Activar o desactivar sonido">
+          <span class="button-icon" id="soundIcon" aria-hidden="true"></span><span id="soundState">SONIDO</span>
+        </button>
+        <button id="fullscreenBtn" class="icon-button" type="button" data-focusable aria-label="Entrar en pantalla completa">
+          <span class="button-icon" id="fullscreenIcon" aria-hidden="true"></span><span id="fullscreenLabel">PANTALLA</span>
+        </button>
+      </div>
+    </header>
+
+    <main id="screen" class="screen" aria-live="polite"></main>
+    <div id="toast" class="toast" role="status" aria-live="polite"></div>
+  </div>
+  <script src="data.js"></script>
+  <script src="art.js"></script>
+  <script src="engine.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

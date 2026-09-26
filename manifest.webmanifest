@@ -1,0 +1,9 @@
+{
+  "name": "The Last Two",
+  "short_name": "The Last Two",
+  "start_url": ".",
+  "display": "fullscreen",
+  "background_color": "#121210",
+  "theme_color": "#121210",
+  "icons": [{ "src": "assets/icon.svg", "sizes": "512x512", "type": "image/svg+xml", "purpose": "any maskable" }]
+}
