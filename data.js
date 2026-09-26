@@ -1,4 +1,4 @@
-const GAME_DATA = {
+var GAME_DATA = {
   "version": 4,
   "totalRounds": 18,
   "scenarios": [
